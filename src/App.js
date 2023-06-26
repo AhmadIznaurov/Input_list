@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import {Input} from "./components/Input/Input";
+import {Button} from "./components/InputButton/Button";
 
 function App() {
+
+  const [todos, setTodos] = useState([]);
+  const [todoText, setTodoText] = useState('');
+  const [isCompleted, setIsCompleted] = useState(false);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h1>Input лист</h1>
+        <div className="sizes">
+          <Input
+              todoText={todoText}
+              setTodoText={setTodoText}
+              setIsCompleted={setIsCompleted}
+              isCompleted={isCompleted}
+          />
+          <Button
+              todoText={todoText}
+              todos={todos}
+              setTodos={setTodos}
+              setIsCompleted={setIsCompleted}
+              isCompleted={isCompleted}
+              setTodoText={setTodoText}
+          />
+        </div>
+
+      </div>
   );
 }
 
 export default App;
+
